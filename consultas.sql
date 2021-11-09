@@ -25,3 +25,12 @@ WHERE filmeId IN (
 	where titulacao='Interestelar'
 )
 
+SELECT DVDnum, data_locacao, data_devolucao, valor, 
+DATEDIFF(DAY, data_locacao, data_devolucao) AS dias_alugado
+FROM Locacao
+WHERE Clientenum_cadastro IN (
+	SELECT num_cadastro FROM Cliente
+	WHERE nome LIKE '%Rosa%'
+)
+
+
